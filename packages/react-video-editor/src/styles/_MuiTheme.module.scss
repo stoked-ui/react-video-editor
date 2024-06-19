@@ -1,0 +1,107 @@
+@use "sass:color";
+
+$black: #000;
+$white: #FFF;
+
+$mui-light-palette-text-primary: #111827;
+$mui-light-palette-text-secondary: #6B7280;
+$mui-light-palette-text-disabled: #959CA9;
+
+$mui-light-palette-background-contrast: #b5b9bd;
+$mui-light-palette-background-default: #f1f5f9;
+$mui-light-palette-background-paper: $white;
+$mui-light-palette-divider: #e2e8f0;
+$mui-light-palette-primary-light: #95a2b4;
+$mui-light-palette-primary-main: #64748b;
+$mui-light-palette-primary-dark: #46556b;
+$mui-light-palette-primary-contrast-text: #FFF;
+$mui-light-palette-secondary-light: #818CF8;
+$mui-light-palette-secondary-main: #4f46e5;
+$mui-light-palette-secondary-dark: #3730a3;
+
+$mui-dark-palette-text-primary: $white;
+$mui-dark-palette-text-secondary: #B4BEC8;
+$mui-dark-palette-text-disabled: #9CA3AF;
+
+$mui-dark-palette-background-contrast: #464546;
+$mui-dark-palette-background-default: #1E1D1E;
+$mui-dark-palette-background-paper: #262526;
+$mui-dark-palette-divider: #F1F5F91E;
+$mui-dark-palette-primary-light: #C2C2C3;
+$mui-dark-palette-primary-main: #323338;
+$mui-dark-palette-primary-dark: #131417;
+$mui-dark-palette-primary-contrast-text: #111827;
+$mui-dark-palette-secondary-light: #B8E1D9;
+$mui-dark-palette-secondary-main: #129B7F;
+$mui-dark-palette-secondary-dark: #056D4F;
+
+$mui-palette-common-black: #111827;
+$mui-palette-common-white: #FFF;
+
+$mui-palette-error-light: #ffcdd2;
+$mui-palette-error-main: #f44336;
+$mui-palette-error-dark: #b71c1c;
+
+$mui-light-palette-action-active: color.mix($black, $white, 54%);
+$mui-light-palette-action-hover: color.mix($black, $white, 4%);
+$mui-light-palette-action-selected: color.mix($black, $white, 8%);
+$mui-light-palette-action-disabled: color.mix($black, $white, 26%);
+$mui-light-palette-action-disabled-background: color.mix($black, $white, 12%);
+
+$mui-dark-palette-action-active: $white;
+$mui-dark-palette-action-hover: color.mix($white, $black, 8%);
+$mui-dark-palette-action-selected: color.mix($white, $black, 16%);
+$mui-dark-palette-action-disabled: color.mix($white, $black, 3%);
+$mui-dark-palette-action-disabled-background: color.mix($white, $black, 12%);
+
+$mui-plyr-editor-padding: '10px';
+
+:export {
+  muiLightPaletteTextPrimary: $mui-light-palette-text-primary;
+  muiLightPaletteTextSecondary: $mui-light-palette-text-secondary;
+  muiLightPaletteTextDisabled: $mui-light-palette-text-disabled;
+  muiLightPaletteActionActive: $mui-light-palette-action-active;
+  muiLightPaletteActionHover: $mui-light-palette-action-hover;
+  muiLightPaletteActionSelected: $mui-light-palette-action-selected;
+  muiLightPaletteActionDisabled: $mui-light-palette-action-disabled;
+  muiLightPaletteActionDisabledBackground: $mui-light-palette-action-disabled-background;
+  muiLightPaletteBackgroundContrast: $mui-light-palette-background-contrast;
+  muiLightPaletteBackgroundDefault: $mui-light-palette-background-default;
+  muiLightPaletteBackgroundPaper: $mui-light-palette-background-paper;
+  muiLightPaletteDivider: $mui-light-palette-divider;
+  muiLightPalettePrimaryLight: $mui-light-palette-primary-light;
+  muiLightPalettePrimaryMain: $mui-light-palette-primary-main;
+  muiLightPalettePrimaryDark: $mui-light-palette-primary-dark;
+  muiLightPalettePrimaryContrastText: $mui-light-palette-primary-contrast-text;
+  muiLightPaletteSecondaryLight: $mui-light-palette-secondary-light;
+  muiLightPaletteSecondaryMain: $mui-light-palette-secondary-main;
+  muiLightPaletteSecondaryDark: $mui-light-palette-secondary-dark;
+
+  muiDarkPaletteTextPrimary: $mui-dark-palette-text-primary;
+  muiDarkPaletteTextSecondary: $mui-dark-palette-text-secondary;
+  muiDarkPaletteTextDisabled: $mui-dark-palette-text-disabled;
+  muiDarkPaletteBackgroundContrast: $mui-dark-palette-background-contrast;
+  muiDarkPaletteBackgroundDefault: $mui-dark-palette-background-default;
+  muiDarkPaletteBackgroundPaper: $mui-dark-palette-background-paper;
+  muiDarkPaletteDivider: $mui-dark-palette-divider;
+  muiDarkPalettePrimaryLight: $mui-dark-palette-primary-light;
+  muiDarkPalettePrimaryMain: $mui-dark-palette-primary-main;
+  muiDarkPalettePrimaryDark: $mui-dark-palette-primary-dark;
+  muiDarkPalettePrimaryContrastText: $mui-dark-palette-primary-contrast-text;
+  muiDarkPaletteSecondaryLight: $mui-dark-palette-secondary-light;
+  muiDarkPaletteSecondaryMain: $mui-dark-palette-secondary-main;
+  muiDarkPaletteSecondaryDark: $mui-dark-palette-secondary-dark;
+  muiDarkPaletteActionActive: $mui-dark-palette-action-active;
+  muiDarkPaletteActionHover: $mui-dark-palette-action-hover;
+  muiDarkPaletteActionSelected: $mui-dark-palette-action-selected;
+  muiDarkPaletteActionDisabled: $mui-dark-palette-action-disabled;
+  muiDarkPaletteActionDisabledBackground: $mui-dark-palette-action-disabled-background;
+
+  muiPaletteCommonBlack: #111827;
+  muiPaletteCommonWhite: #FFF;
+
+  muiPaletteErrorLight: #ffcdd2;
+  muiPaletteErrorMain: #f44336;
+  muiPaletteErrorDark: #b71c1c;
+  muiRveEditorPadding: $mui-plyr-editor-padding;
+}

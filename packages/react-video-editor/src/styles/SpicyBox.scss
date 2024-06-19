@@ -1,0 +1,240 @@
+@use "sass:selector";
+@use "./MuiTheme.module";
+
+@function border-pipeline ($duration, $pipe) {
+  @return $duration*$pipe;
+}
+
+@mixin border-animation($dimension, $easing, $pipe, $duration) {
+  transition: $duration $dimension $easing border-pipeline($duration, $pipe);
+  -web-kit-transition: $duration $dimension $easing border-pipeline($duration, $pipe);
+}
+
+:root {
+  --border-gap: 0;
+  --border-dash: 50%;
+  --border-bg-h: 15px;
+  --border-bg-h2: -15px;
+  --border-bg-w: 4px;
+}
+
+// draw the dashed border
+@mixin dashed-border-background($border_color) {
+  background:
+    linear-gradient(90deg, $border_color var(--border-dash), transparent var(--border-gap)) repeat-x,
+    linear-gradient(90deg, $border_color var(--border-dash), transparent var(--border-gap)) repeat-x,
+    linear-gradient(0deg, $border_color var(--border-dash), transparent var(--border-gap)) repeat-y,
+    linear-gradient(0deg, $border_color var(--border-dash), transparent var(--border-gap)) repeat-y;
+}
+
+// animated dashed border
+@mixin dashed-border($border_color) {
+  @include dashed-border-background($border_color);
+  background-size:
+    var(--border-bg-h) var(--border-bg-w),
+    var(--border-bg-h) var(--border-bg-w),
+    var(--border-bg-w) var(--border-bg-h),
+    var(--border-bg-w) var(--border-bg-h);
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+  border-radius: 6px !important;
+}
+
+
+@keyframes linearGradientMove {
+  100% {
+    background-position: var(--border-bg-h) 0, var(--border-bg-h2) 100%, 0 var(--border-bg-h2), 100% var(--border-bg-h);
+  }
+}
+
+@mixin animate-dashed-border($animation_time, $border_color) {
+  animation: linearGradientMove $animation_time infinite linear;
+}
+
+@mixin base($border_color, $stroke, $border_radius, $total_duration, $parts) {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  border-width: 0 !important;
+  border-radius: unquote($border_radius);
+  text-align: center;
+  color: #fff;
+  position: relative;
+  transition: $total_duration;
+  padding: 0;
+}
+
+// basic
+@mixin basic($rootClassName, $primary_color, $background_color, $stroke, $border_radius, $total_duration) {
+  $pipes: 4;
+  $rootSelector: "." + $rootClassName;
+  $part_duration: calc($total_duration / ($pipes + 1));
+  $border_color: lighten($primary_color, 20);
+
+  #{$rootSelector} {
+    @include base($border_color, $stroke, $border_radius, $total_duration, $pipes);
+    @include basic-guts($background_color, $stroke);
+  }
+}
+
+@mixin basic-guts($background_color, $stroke)
+{
+  &:hover {
+    @include animate-dashed-border(.5s, lighten($background_color, 20));
+  }
+}
+
+// dashed-anim
+@mixin dashed-anim-guts($background_color, $stroke, $animation_time, $part_duration)
+{
+    @include animate-dashed-border($animation_time, lighten($background_color, 40));
+}
+
+@mixin dashed-anim($rootSelector, $default_color, $alt_color, $drag-color, $stroke, $border_radius, $total_duration, $lightMode: true) {
+  $pipes: 4;
+  $part_duration: calc($total_duration / ($pipes + 1));
+  $border_color: #000;
+  $border_color_alt: darken($default_color, 40);
+  $wrap_color: #fff;
+  @if $lightMode {
+    $border_color: #FFF;
+    $border_color_alt: lighten($default_color, 40);
+    $wrap_color: #000;
+  }
+  $hoverSelector: selector.replace($rootSelector, ".drop", ".drop-hover");
+  $hoveringSelector: selector.replace($rootSelector, ".drop", ".drop-hover:hover");
+  $hoverSelectorInner: $hoverSelector + " .drop-inner";
+  $hoveringSelectorInner: $hoveringSelector + " .drop-inner";
+  $double_stroke: $stroke*2;
+  #{$hoverSelectorInner} {
+    @include base($border_color, $stroke, $border_radius, $total_duration, $pipes);
+    @include dashed-border($border_color);
+  }
+  #{$hoveringSelectorInner} {
+    @include base($border_color, $stroke, $border_radius, $total_duration, $pipes);
+    @include dashed-anim-guts($border_color_alt, $stroke, .3s, $part_duration);
+  }
+  #{$hoverSelector} {
+    @include base($border_color, $stroke, $border_radius, $total_duration, $pipes);
+    background-color: $default_color;
+    transition: $total_duration;
+    &:before {
+      position: absolute;
+      height: $double_stroke;
+      content: '';
+      background: $wrap_color;
+      top: -$double_stroke;
+      left: -$double_stroke;
+      margin: $double_stroke;
+      width: 0;
+      transition: $total_duration;
+      @include border-animation(width, ease, 3, $part_duration);
+    }
+    &:after {
+      position: absolute;
+      width: $double_stroke;
+      content: '';
+      background: $wrap_color;
+      top: -$double_stroke;
+      margin: $double_stroke;
+      right: -$double_stroke;
+      height: 0;
+      transition: $total_duration;
+      @include border-animation(height, ease, 2, $part_duration);
+    }
+
+    & .drop-inner {
+      transition: background 0ms;
+      & p {
+        transition: color 300ms;
+      }
+    }
+
+    & .drop-inner:after{
+      position: absolute;
+      width: 0;
+      height: $double_stroke;
+      margin: $double_stroke;
+      content: '';
+      background: $wrap_color;
+      bottom: -$double_stroke;
+      right: -$double_stroke;
+      transition: $total_duration;
+      @include border-animation(width, ease, 1, $part_duration);
+    }
+    & .drop-inner:before {
+      position: absolute;
+      margin: $double_stroke;
+      width: $double_stroke;
+      height: 0;
+      content: '';
+      background: $wrap_color;
+      bottom: -$double_stroke;
+      left: -$double_stroke;
+      transition: color 300ms all $total_duration;
+      @include border-animation(height, ease, 0, $part_duration);
+    }
+  }
+  #{$hoveringSelector} {
+    @include base($border_color, $stroke, $border_radius, $total_duration, $pipes);
+    background-color: $alt_color;
+  }
+}
+
+@mixin dashed-anim-wrap($rootSelector, $default_color, $alt_color, $drag_color, $stroke, $border_radius, $total_duration, $lightMode) {
+  $pipes: 4;
+  $part_duration: 100ms;
+  $border_color: darken($default_color, 20);
+
+  @if $lightMode {
+    $border_color: lighten($default_color, 20);
+  }
+
+  $dragSelector: selector.replace($rootSelector, ".drop", ".drop-hover.drop-drag");
+
+  #{$dragSelector} {
+    @include base($border_color, $stroke, $border_radius, $total_duration, $pipes);
+    transition: $total_duration;
+    @include wrap-guts($dragSelector, $default_color, $alt_color, $drag_color, $stroke, $part_duration, $pipes);
+  }
+}
+
+@mixin wrap-guts($rootSelector, $default_color, $alt_color, $drag_color, $stroke, $part_duration, $pipes)
+{
+  $double_stroke: ($stroke * 2);
+  $border_color: lighten($default_color, 20);
+
+  background:darken($drag_color, 10);
+  &:before {
+    width: 100%;
+    margin: $double_stroke;
+    @include border-animation(width, ease, 0, $part_duration);
+  }
+  &:after {
+    height: 100%;
+    margin: $double_stroke;
+    @include border-animation(height, ease, 1, $part_duration);
+  }
+  & .drop-inner {
+    background: transparent;
+    & p {
+      transition: color 300ms;
+    }
+  }
+  & .drop-inner:after{
+    width: 100%;
+    margin: $double_stroke;
+    @include border-animation(width, ease, 2, $part_duration);
+  }
+  & .drop-inner:before {
+    height: 100%;
+    margin: $double_stroke;
+    @include border-animation(height, ease, 3, $part_duration);
+  }
+}
+
+// set up hover and drag animations
+
+@mixin spicy-drag-box($rootSelector, $default_color, $hover_color, $drag_color, $stroke, $border_radius, $total_duration, $lightMode) {
+  @include dashed-anim($rootSelector, $default_color, $hover_color, $drag_color, $stroke, $border_radius, $total_duration, $lightMode);
+  @include dashed-anim-wrap($rootSelector, $default_color, $hover_color, $drag_color, $stroke, $border_radius, $total_duration, $lightMode);
+}
