@@ -1,0 +1,116 @@
+@import '../../styles/MuiTheme.module';
+@import "../../styles/SpicyBox";
+
+$modified-width: 164px;
+$name-width: 78px;
+$modified-max: 1274px;
+$name-max: 1274px;
+
+.rve-file-lists {
+  .file-list-input {
+    @apply z-20 opacity-0 w-full absolute; // Apply styles
+  }
+  .rve-file-list {
+    width: calc((100vw - 20px) / 3);
+    background-color: $mui-light-palette-primary-light;
+    color: $white;
+    border-radius: 4px;
+    min-width: 307.33px;
+
+    div.rendered-file-list div.files table th.modified,
+    div.rendered-file-list div.files table td.modified {
+      //background-color: red;
+    }
+
+    div.rendered-file-list div.files table {
+      th,
+      td {
+        font-size: 15px;
+        font-weight: 500;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      @media (max-width: $modified-max) {
+        th.modified,
+        td.modified {
+          display: none;
+        }
+      }
+      @media (min-width: $modified-max) {
+        th.modified {
+          width: $modified-width;
+          font-size: 15px;
+        }
+      }
+      @media (max-width: $name-max) {
+        th.size,
+        td.size {
+          display: none;
+        }
+      }
+      @media (min-width: $name-max) {
+        th.size {
+          width: $name-width;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+.light .rve-file-list {
+  color: $white;
+  tr.file td.name a {
+    font-weight: 500;
+    color: $white;
+  }
+}
+
+.dark .rve-file-list {
+  color: $black;
+  tr.file td.name a {
+    font-weight: 500;
+    color: $black;
+  }
+  .rve-file-list-title {
+    color: $white;
+  }
+}
+
+.rve-file-list-title {
+  background-color: $mui-light-palette-primary-main;
+  padding: 0.5rem 0.5rem 0.5rem 10px;
+  border-radius: 4px;
+}
+
+.rve-file-lists {
+  width: 100%;
+
+
+  .drop-inner {
+    width: 100%;
+    column-gap: 10px;
+    display: flex;
+    flex-direction: row;
+
+    .drag-drop {
+      bottom: 0; // Position at bottom
+      position: absolute; // Set position to absolute
+      right: 0; // Position at right
+      margin: 1rem 1.5rem; // Set margin
+    }
+
+    // Styling for the click-select class
+    .click-select {
+      top: 0; // Position at top
+      position: absolute; // Set position to absolute
+      left: 0; // Position at left
+      margin: 1rem 1.5rem; // Set margin
+    }
+  }
+}
+
+// Include spicy-drag-box for light and dark themes
+@include spicy-drag-box(".fullscreen-wrap.light .rve-file-list.drop", $mui-light-palette-primary-light, $mui-light-palette-primary-dark, $mui-light-palette-secondary-dark, 2px, "8px!important", 500ms, true);
+@include spicy-drag-box(".fullscreen-wrap.dark .rve-file-list.drop", $mui-light-palette-primary-dark, $mui-light-palette-primary-light, $mui-light-palette-secondary-light, 2px, "8px!important", 500ms, false);

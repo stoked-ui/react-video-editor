@@ -1,0 +1,91 @@
+{
+  "name": "@stoked-ui/rve-mono",
+  "version": "0.1.0",
+  "author": "Brian Stoker",
+  "license": "MIT",
+  "keywords": [
+    "react video editor",
+    "react",
+    "video",
+    "editor",
+    "timeline",
+    "ffmpeg"
+  ],
+  "bugs": {
+    "url": "https://github.com/stokedui/rve-mono"
+  },
+  "homepage": "https://github.com/stokedui/rve-mono#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stokedui/rve-mono.git"
+  },
+  "scripts": {
+    "prebuild": "pnpm clean:build",
+    "build:file-list": "pnpm -F file-list build",
+    "build:file-selector": "pnpm -F file-selector build",
+    "build:timeline": "pnpm -F timeline build",
+    "build:video-editor": "pnpm -F video-editor build",
+    "build": "pnpm build:file-list && pnpm build:file-selector && pnpm build:timeline && pnpm build:video-editor",
+    "postbuild": "echo finished build",
+    "start": "pnpm  --parallel --filter \"./**\" start",
+    "preview": "pnpm  --parallel --filter \"./**\" preview",
+    "stop": "kill-port --port 9140,9150",
+    "debug": "pnpm -r build:debug",
+    "editor": "pnpm -F video-editor debug",
+    "editor:chunks": "pnpm -F video-editor chunks",
+    "file-list": "pnpm -F file-list dev",
+    "file-list:chunks": "pnpm -F file-list chunks",
+    "video-editor": "pnpm -F video-editor dev",
+    "video-editor:chunks": "pnpm -F video-editor chunks",
+    "clean": "rimraf --glob **/pnpm-lock.yaml **/package-lock.json **/yarn.lock **/node_modules **/dist **/build",
+    "clean:build": "rimraf --glob **/dist **/build",
+    "chrome-cors": "run-script-os",
+    "chrome-cors:macos": "bash scripts/chrome/cors-mac.sh",
+    "chrome-cors:windows": "scripts/chrome/cors-windows.bat",
+    "chrome-nocors": "run-script-os",
+    "chrome-nocors:macos": "bash scripts/chrome/nocors-mac.sh",
+    "chrome-nocors:windows": "scripts/chrome/nocors-windows.bat"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "devDependencies": {
+    "@originjs/vite-plugin-federation": "^1.3.5",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "esbuild": "0.21.5",
+    "run-script-os": "^1.1.6",
+    "typescript": "5.4.5",
+    "vite-plugin-node-polyfills": "^0.22.0",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vite": "5.3.1"
+  },
+  "engines": {
+    "node": "20.14.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "typescript": "5.4.5"
+  },
+  "resolutions": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-virtualized": "9.22.5",
+    "vite": "5.3.1",
+    "esbuild": "0.21.5",
+    "husky": "9.0.7",
+    "typescript": "5.4.5",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0"
+  },
+  "overrides": {
+
+  },
+  "packageManager": "pnpm@9.3.0"
+}

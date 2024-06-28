@@ -1,0 +1,12 @@
+{
+  "fileList": {
+    "formats": {
+
+    },
+    "server": 9140
+  },
+  "videoEditor": {
+    "server": 9150,
+    "preview": 9151
+  }
+}

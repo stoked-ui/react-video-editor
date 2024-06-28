@@ -10,13 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-vite
 *.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-!.vscode/launch.json
 .idea
 .DS_Store
 *.suo
@@ -24,13 +22,4 @@ vite
 *.njsproj
 *.sln
 *.sw?
-/test-results/
-/playwright-report/
-/playwright/.cache/
-
-# storybook
-storybook-static
-
-# tests
-/coverage/
-/packages/vite-react-boilerplate/
+workspace.code-workspace

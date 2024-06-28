@@ -1,0 +1,136 @@
+// Importing necessary styles and themes
+@import "../../styles/tailwind.css";
+@import '../../styles/MuiTheme.module.scss';
+@import "../Rve/Rve.scss";
+@import "../../styles/SpicyBox.scss";
+
+// Styling for the rve-dropzone class
+.rve-dropzone {
+  @apply flex; // Apply flex display
+  @include video-template; // Include video template
+  aspect-ratio: 16/9; // Set aspect ratio
+  top: 0; // Position at top
+}
+
+// Include spicy-drag-box for light and dark themes
+@include spicy-drag-box(".fullscreen-wrap.light .rve-dropzone.drop", $mui-light-palette-primary-light, $mui-light-palette-primary-dark, $mui-light-palette-secondary-dark, 2px, "8px!important", 500ms, true);
+@include spicy-drag-box(".fullscreen-wrap.dark .rve-dropzone.drop", $mui-light-palette-primary-dark, $mui-light-palette-primary-light, $mui-light-palette-secondary-light, 2px, "8px!important", 500ms, false);
+
+// Styling for the rve-dropzone-root class
+.fullscreen-wrap {
+  .rve-dropzone-root {
+    width: 100%; // Set width
+    aspect-ratio: 16/9; // Set aspect ratio
+    object-fit: contain; // Set object fit
+    overflow: hidden; // Hide overflow
+    box-sizing: border-box; // Set box sizing
+    display: flex; // Set display to flex
+    margin: auto; // Center the element
+
+    // Styling for the rve-dropzone class within rve-dropzone-root
+    .rve-dropzone {
+      .dropzone-input {
+        @apply z-20 opacity-0 w-full h-full absolute;
+        // Apply styles
+      }
+
+      // Styling for the drop-inner class
+      .drop-inner {
+        align-content: center; // Center content vertically
+        justify-content: center; // Center content horizontally
+        font-size: 1.5rem; // Set font size
+        overflow: hidden; // Hide overflow
+        width: 100%; // Set width
+
+        // Styling for the span within drop-inner
+        span {
+          transition: color 300ms; // Set transition for color
+          text-transform: uppercase; // Transform text to uppercase
+        }
+
+        // Styling for the drag-drop class
+        .drag-drop {
+          bottom: 0; // Position at bottom
+          position: absolute; // Set position to absolute
+          right: 0; // Position at right
+          margin: 1rem 1.5rem; // Set margin
+        }
+
+        // Styling for the click-select class
+        .click-select {
+          top: 0; // Position at top
+          position: absolute; // Set position to absolute
+          left: 0; // Position at left
+          margin: 1rem 1.5rem; // Set margin
+        }
+
+        // Styling for the upload-icon class
+        .upload-icon {
+          width: 100%; // Set width
+          height: 100%; // Set height
+        }
+      }
+    }
+  }
+}
+
+// Apply container for resize-box when aspect-ratio is greater than 16/9
+@container resize-box (aspect-ratio > 16/9) {
+  .rve-dropzone-root {
+    width: auto; // Set width to auto
+    height: 100%; // Set height
+  }
+}
+
+// Styling for the div within rve-dropzone-root
+.rve-dropzone-root > div {
+  margin: auto; // Center the element
+}
+
+// Styling for the rve-dropzone class within light theme
+.light .rve-dropzone {
+  .drop-inner {
+    span {
+      color: #FCFCFC; // Set color
+    }
+    .upload-icon {
+      color: #FCFCFC; // Set color
+    }
+  }
+}
+
+// Styling for the rve-dropzone class within light theme on hover
+.light .rve-dropzone:hover {
+  .drop-inner {
+    span {
+      color: $white; // Set color
+    }
+    .upload-icon {
+      color: $white; // Set color
+    }
+  }
+}
+
+// Styling for the rve-dropzone class within dark theme
+.dark .rve-dropzone {
+  .drop-inner {
+    span {
+      color: #040404; // Set color
+    }
+    .upload-icon {
+      color: #040404; // Set color
+    }
+  }
+}
+
+// Styling for the rve-dropzone class within dark theme on hover
+.dark .rve-dropzone:hover {
+  .drop-inner {
+    span {
+      color: $black; // Set color
+    }
+    .upload-icon {
+      color: $black; // Set color
+    }
+  }
+}

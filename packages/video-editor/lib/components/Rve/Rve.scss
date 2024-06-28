@@ -1,0 +1,188 @@
+// Importing the main styles from the styles.css file
+@import '../../styles/tailwind.css';
+@import '../../styles/MuiTheme.module.scss';
+
+// Styling for the fullscreen-wrap class
+.fullscreen-wrap {
+  container-type: size; // Set container type
+  container-name: resize-box; // Set container name
+  display: grid; // Set display to grid
+  overflow: hidden; // Hide overflow
+  height: calc(100vh - 20px); // Set height
+  width: calc(100vw - 20px); // Set width
+  margin: 10px; // Set margin
+}
+
+// The main container for the rve-editor component
+.rve {
+  // This mixin allows the element to grow to fit its content
+  // The minimum width of the rve-editor component
+  min-width: 962px;
+  // The direction of the flex items
+  flex-direction: column;
+  // The space between the flex items
+  row-gap: 10px;
+  display: flex;
+}
+
+// The container for the metadata of the rve-editor component
+.rve-meta {
+  // Applying flex properties to the container
+  @apply flex flex-col gap-2.5;
+  // The width of the rve-editor-meta component
+  width: 24%;
+}
+
+// The primary row inside the rve-editor component
+.rve-primary-row {
+  // The space between the flex items
+  gap: 10px;
+  // The width of the rve-editor-primary-row component
+  width: 100%
+}
+
+// The text-field component when the theme is dark
+.dark .text-field {
+  // The background color of the text-field component
+  background-color: #1f2937;
+}
+
+// The text-field component when the theme is light
+.light .text-field {
+  // The background color of the text-field component
+  background-color: #f9fafb;
+}
+
+
+@mixin grow-to-fit {
+  display: flex;
+  flex-grow: 1;
+}
+
+@mixin video-template {
+  display: flex;
+  align-items:  center;
+  justify-content: center;
+  border-radius: 8px 8px 0 0 !important;
+  margin: 0px !important;
+  padding: 0px;
+  border-width: 0px !important;
+  position: relative;
+}
+
+@mixin slider {
+  &::-webkit-slider-runnable-track {
+    color: #000000;
+    background-color: #444;
+  }
+
+  &::-moz-range-track {
+    color: #000000;
+    background-color: #444;
+  }
+
+  &::-ms-track {
+    color: #000000;
+    background-color: #444;
+  }
+
+  &::-webkit-slider-thumb {
+    background: #000000;
+  }
+
+  &::-moz-range-thumb {
+    background: #000000;
+  }
+
+  &::-ms-thumb {
+    background: #000000;
+  }
+}
+
+.rve-player-container {
+  width: 100%;
+  height: 100%;
+}
+.rve-video {
+  border-radius: 8px 8px 0 0 !important;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  video {
+    @include video-template;
+    //border-radius: 8px 0 8px 0px !important;
+    background-color: #9ca3af;
+    max-height: calc(100vh - 266.5px);
+  }
+  .empty-video {
+    @include video-template;
+    background-color: #9ca3af;
+    max-height: calc(100vh - 266.5px);
+  }
+  .plyr {
+    border-radius: 8px 8px 0 0 !important;
+  }
+}
+
+.rve-screenshot {
+  width: 100%;
+  border-radius: 8px;
+  position: absolute;
+}
+
+.rve-screenshot-btn {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  margin: 10px;
+}
+
+.rve-screenshot-btn.delete {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  margin: 10px 60px 10px 10px;
+}
+
+.rve-video-container {
+  position: absolute;
+  justify-self: center;
+  align-self: start;
+}
+
+.rve-screenshot-editor {
+  width: 33%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  box-shadow: 0px 3px 5px #333;
+  display: flex;
+  border-radius: 8px;
+}
+
+.light .plyr {
+  .plyr__controls {
+    background: linear-gradient(#FFF0, #FFFFFFbf);
+    color: black;
+    .plyr__controls__item.plyr__volume input[type=range] {
+      @include slider;
+    }
+  }
+  .plyr__progress {
+    .plyr__progress__buffer {
+      // color: #000000FF;
+    }
+    input[type=range] {
+      @include slider;
+    }
+  }
+}
+
+.dark .plyr .plyr__controls {
+  background: linear-gradient(#0000, #{$mui-dark-palette-background-paper}bf);
+  color: white;
+}
