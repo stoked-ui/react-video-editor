@@ -1,0 +1,17 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "es2015",
+        "moduleResolution": "node",
+        "target": "es5",
+        "outDir": "./dist/es5",
+        "importHelpers": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "outFile": "./dist/es5/index.d.ts"
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

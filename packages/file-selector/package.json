@@ -1,0 +1,87 @@
+{
+  "name": "@stoked-ui/file-selector",
+  "version": "0.6.0",
+  "description": "Convert DataTransfer object to a list of File objects",
+  "main": "./dist/index.js",
+  "lib": "./dist/index.js",
+  "module": "./dist/index.js",
+  "type": "module",
+  "es2015": "./dist/es2015/index.js",
+  "typings": "./dist",
+  "files": [
+    "dist/**/*",
+    "src/*",
+    "!*.spec.*",
+    "LICENSE"
+  ],
+  "keywords": [
+    "drag-and-drop",
+    "html5",
+    "file-api",
+    "DataTransfer",
+    "File"
+  ],
+  "homepage": "https://github.com/stokedui/file-selector",
+  "license": "MIT",
+  "author": {
+    "name": "Roland Groza, Brian Stoker",
+    "email": "rolandjitsu@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stokedui/file-selector.git"
+  },
+  "scripts": {
+    "prebuild": "pnpm run clean",
+    "build": "npm-run-all -s compile build:umd",
+    "build:umd": "rollup -c ./rollup.config.js",
+    "copy:umd-types": "copyfiles ./index.d.ts ./dist/bundles/index.d.ts",
+    "compile": "npm-run-all -p compile:es2015 compile:es2015-types compile:es5 compile:es5-types compile:root compile:root-types",
+    "compile:es2015": "tsc -p ./tsconfig.es2015.json",
+    "compile:es2015-types": "tsc -p ./tsconfig.es2015.types.json",
+    "compile:es5": "tsc -p ./tsconfig.es5.json",
+    "compile:es5-types": "tsc -p ./tsconfig.es5.types.json",
+    "compile:root": "tsc -p ./tsconfig.root.json",
+    "compile:root-types": "tsc -p ./tsconfig.types.json",
+    "compile:types": "tsc -p ./tsconfig.types.json",
+    "clean": "rimraf dist/*",
+    "lint": "tslint -c tslint.json -p ./tsconfig.spec.json -t stylish",
+    "lint:fix": "pnpm run lint -- --fix",
+    "pretest:cov": "pnpm run lint",
+    "test:cov": "jest --coverage",
+    "test": "jest --watch"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.2.1",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^20.14.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
+    "babel-jest": "^29.7.0",
+    "camelcase": "^6.3.0",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsdoc": "^48.2.13",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-unicorn": "^54.0.0",
+    "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.7",
+    "rollup": "^2.70.2",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">= 12"
+  },
+  "dependencies": {
+    "tslib": "^2.6.3"
+  }
+}
