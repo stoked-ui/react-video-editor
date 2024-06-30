@@ -2,9 +2,9 @@ import type { FC, HTMLProps, ReactElement, ReactNode } from 'react';
 import { useState } from 'react';
 import ArticleIcon from '@mui/icons-material/Article';
 import type { IRveFile } from '../../models/RveFile';
-import { FileList } from '@stoked-ui/file-list';
-import { KeyedFile } from '@stoked-ui/file-list';
-import { GetIcons } from '@stoked-ui/file-list';
+import { FileList } from '@stokedui/file-list';
+import { KeyedFile } from '@stokedui/file-list';
+import { GetIcons } from '@stokedui/file-list';
 /*
 import FileList from 'stokedui-file-list/FileList';
 import KeyedFile from 'stokedui-file-list/KeyedFile';

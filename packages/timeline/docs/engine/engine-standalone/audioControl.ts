@@ -1,4 +1,4 @@
-import { TimelineEngine } from '@stoked-ui/timeline';
+import { TimelineEngine } from '@stokedui/timeline';
 import { Howl } from 'howler';
 
 class AudioControl {

@@ -6,7 +6,7 @@ import {
   FirstPage,
   LastPage,
 } from '@mui/icons-material';
-import { TimelineEngine, TimelineState } from '@stoked-ui/timeline';
+import { TimelineEngine, TimelineState } from '@stokedui/timeline';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import React, { FC, useEffect, useState } from 'react';
 import IconButton from '@mui/material/IconButton';

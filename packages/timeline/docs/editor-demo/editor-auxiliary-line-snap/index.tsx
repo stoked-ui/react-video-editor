@@ -1,4 +1,4 @@
-import { Timeline } from '@stoked-ui/timeline';
+import { Timeline } from '@stokedui/timeline';
 import { Switch } from 'antd';
 import { cloneDeep } from 'lodash';
 import React, { useState } from 'react';

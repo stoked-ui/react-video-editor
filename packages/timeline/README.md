@@ -1,6 +1,6 @@
 # React Timeline Editor
-[![npm version](https://img.shields.io/npm/v/@stoked-ui/timeline.svg?style=flat-square)](https://www.npmjs.com/package/@stoked-ui/timeline)
-[![npm downloads](https://img.shields.io/npm/dm/@stoked-ui/timeline.svg?style=flat-square)](https://www.npmjs.com/package/@stoked-ui/timeline)
+[![npm version](https://img.shields.io/npm/v/@stokedui/timeline.svg?style=flat-square)](https://www.npmjs.com/package/@stokedui/timeline)
+[![npm downloads](https://img.shields.io/npm/dm/@stokedui/timeline.svg?style=flat-square)](https://www.npmjs.com/package/@stokedui/timeline)
 
 **[React Timeline Editor](https://zdarcy.com/)** is a react component used to quickly build a timeline animation editor.
 
@@ -8,11 +8,11 @@
 ## Getting Started
 
 ```bash
-npm install @stoked-ui/timeline
+npm install @stokedui/timeline
 ```
 
 ```ts
-import { Timeline, TimelineEffect, TimelineRow } from '@stoked-ui/timeline';
+import { Timeline, TimelineEffect, TimelineRow } from '@stokedui/timeline';
 import React from 'react';
 
 const mockData: TimelineRow[] = [{

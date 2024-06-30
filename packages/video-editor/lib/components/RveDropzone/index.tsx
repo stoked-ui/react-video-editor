@@ -14,8 +14,8 @@ import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import { dropTargetForExternal, monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
 import { containsFiles } from '@atlaskit/pragmatic-drag-and-drop/external/file';
 import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/prevent-unhandled';
-import { fromEvent } from '@stoked-ui/file-selector';
-import type { FileWithPath } from '@stoked-ui/file-selector';
+import { fromEvent } from '@stokedui/file-selector';
+import type { FileWithPath } from '@stokedui/file-selector';
 
 /**
  * RveDropzoneProps interface

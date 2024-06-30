@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TimelineAction, TimelineRow } from '@stoked-ui/timeline';
+import { TimelineAction, TimelineRow } from '@stokedui/timeline';
 
 export const CustomRender0: FC<{ action: TimelineAction; row: TimelineRow }> =
   ({ action, row }) => {

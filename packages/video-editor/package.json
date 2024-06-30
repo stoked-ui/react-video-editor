@@ -1,5 +1,5 @@
 {
-  "name": "@stoked-ui/video-editor",
+  "name": "@stokedui/video-editor",
   "author": "Brian Stoker",
   "private": false,
   "version": "0.0.1",
@@ -28,9 +28,9 @@
     "@mui/material": "^5.2.3",
     "@mui/styled-engine": "^5.2.3",
     "@mui/system": "^5.2.3",
-    "@stoked-ui/file-list": "workspace:*",
-    "@stoked-ui/file-selector": "workspace:*",
-    "@stoked-ui/timeline": "workspace:*",
+    "@stokedui/file-list": "workspace:*",
+    "@stokedui/media-selector": "workspace:*",
+    "@stokedui/timeline": "workspace:*",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

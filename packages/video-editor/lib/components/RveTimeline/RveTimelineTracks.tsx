@@ -1,4 +1,4 @@
-import { Timeline, TimelineEngine, TimelineAction, TimelineRow, EditData, TimelineState } from '@stoked-ui/timeline';
+import { Timeline, TimelineEngine, TimelineAction, TimelineRow, EditData, TimelineState } from '@stokedui/timeline';
 import React, { ReactNode } from 'react';
 import { useRef, useState } from 'react';
 import type { RveTimelineEffect, RveTimelineAction } from './';

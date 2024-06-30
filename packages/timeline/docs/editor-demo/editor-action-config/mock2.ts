@@ -1,4 +1,4 @@
-import { TimelineEffect, TimelineRow } from '@stoked-ui/timeline';
+import { TimelineEffect, TimelineRow } from '@stokedui/timeline';
 
 export const mockEffect: Record<string, TimelineEffect> = {
   effect0: {

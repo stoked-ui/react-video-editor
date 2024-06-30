@@ -7,7 +7,7 @@ import RveFile, { type IRveFile } from '../../models/RveFile';
 // import { FfmpegService } from '../../services/Ffmpeg.tsx';
 import mime from 'mime';
 import IdGenerator from '../../services/IdGenerator.tsx';
-import type { FileWithPath } from '@stoked-ui/file-selector';
+import type { FileWithPath } from '@stokedui/media-selector';
 import { FfmpegService } from '../../services/Ffmpeg.tsx';
 const { newFileId } = IdGenerator();
 

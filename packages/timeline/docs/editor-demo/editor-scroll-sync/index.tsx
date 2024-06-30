@@ -1,4 +1,4 @@
-import { Timeline, TimelineState } from '@stoked-ui/timeline';
+import { Timeline, TimelineState } from '@stokedui/timeline';
 import { cloneDeep } from 'lodash';
 import React, { useRef, useState } from 'react';
 import './index.less';

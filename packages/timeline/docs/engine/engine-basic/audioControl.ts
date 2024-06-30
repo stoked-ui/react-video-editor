@@ -1,5 +1,5 @@
 import { Howl } from 'howler';
-import { TimelineEngine } from '@stoked-ui/timeline';
+import { TimelineEngine } from '@stokedui/timeline';
 
 class AudioControl {
   cacheMap: Record<string, Howl> = {};

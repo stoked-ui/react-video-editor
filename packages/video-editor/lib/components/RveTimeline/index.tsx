@@ -7,7 +7,7 @@ import {useRef, useState } from 'react';
 import type { IVideoFile, VideoFile } from '../../models/VideoFile';
 import type RveFile from '../../models/RveFile';
 import type { IRveFile } from '../../models/RveFile';
-import type { EditData, EffectSourceParam, TimelineAction, TimelineEffect, TimelineState, TimelineRow } from '@stoked-ui/timeline';
+import type { EditData, EffectSourceParam, TimelineAction, TimelineEffect, TimelineState, TimelineRow } from '@stokedui/timeline';
 import IdGenerator from '../../services/IdGenerator.tsx';
 import RveTimelineTracks from '../RveTimeline/RveTimelineTracks.tsx';
 

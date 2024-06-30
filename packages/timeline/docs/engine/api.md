@@ -51,7 +51,7 @@ Start playing from the current time (can be set through `setTime`), and return w
 + autoEnd (optional): whether to automatically stop after playing all actions
 
 ```ts | pure
-import { TimelineEngine } from '@stoked-ui/timeline';
+import { TimelineEngine } from '@stokedui/timeline';
 const engine = new TimelineEngine();
 engine.play({autoEnd: true})
 ```
@@ -65,7 +65,7 @@ engine.play({autoEnd: true})
 You can listen to some events provided by the runner and respond to logic
 
 ```ts | pure
-import { TimelineEngine } from '@stoked-ui/timeline';
+import { TimelineEngine } from '@stokedui/timeline';
 const engine = new TimelineEngine();
 ```
 

@@ -1,5 +1,5 @@
 import { CaretRightOutlined, PauseOutlined } from '@ant-design/icons';
-import { TimelineState } from '@stoked-ui/timeline';
+import { TimelineState } from '@stokedui/timeline';
 import { Select } from 'antd';
 import React, { FC, useEffect, useState } from 'react';
 import lottieControl from './lottieControl';

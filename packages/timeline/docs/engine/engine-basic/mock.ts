@@ -1,4 +1,4 @@
-import { TimelineAction, TimelineEffect, TimelineRow } from '@stoked-ui/timeline';
+import { TimelineAction, TimelineEffect, TimelineRow } from '@stokedui/timeline';
 import audioControl from './audioControl';
 import lottieControl from './lottieControl';
 

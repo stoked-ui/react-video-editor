@@ -24,12 +24,12 @@ It can be mainly used to build animation editors, video editors, etc.
 ## Get started quickly
 
 ```
-npm install @stoked-ui/timeline
+npm install @stokedui/timeline
 ```
 
 ```tsx | pure
 import React from 'react';
-import { Timeline } from '@stoked-ui/timeline';
+import { Timeline } from '@stokedui/timeline';
 
 export const TimelineEditor = () => {
   return (

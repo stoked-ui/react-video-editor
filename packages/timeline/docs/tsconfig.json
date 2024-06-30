@@ -8,7 +8,7 @@
     "baseUrl": "../",
     "strict": false,
     "paths": {
-      "@stoked-ui/timeline": ["src/index.tsx"]
+      "@stokedui/timeline": ["src/index.tsx"]
     },
     "allowSyntheticDefaultImports": true
   },

@@ -1,5 +1,5 @@
 {
-  "name": "@stoked-ui/rve-mono",
+  "name": "@stokedui/rve-mono",
   "version": "0.1.0",
   "author": "Brian Stoker",
   "license": "MIT",
@@ -82,7 +82,8 @@
     "husky": "9.0.7",
     "typescript": "5.4.5",
     "@types/react": "18.3.1",
-    "@types/react-dom": "18.3.0"
+    "@types/react-dom": "18.3.0",
+    "@types/node": "20.14.0"
   },
   "overrides": {
 
